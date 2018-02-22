@@ -1,0 +1,31 @@
+{
+  "name": "wordsmith-parser-service",
+  "version": "1.5.0",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "express-urlrewrite": "^1.2.0",
+    "honeybadger": "^1.1.2",
+    "nsp": "^3.2.1"
+  },
+  "devDependencies": {
+    "eslint": "^3.17.1",
+    "eslint-config-airbnb-base": "^11.1.1",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-security": "^1.4.0",
+    "mocha": "^2.4.5",
+    "mocha-jenkins-reporter": "^0.3.0",
+    "supertest": "^3.0.0"
+  },
+  "scripts": {
+    "start": "node lib/express/app.js",
+    "jenkins": "JUNIT_REPORT_PATH=./results.xml mocha --reporter mocha-jenkins-reporter",
+    "test": "HONEYBADGER_ENVIRONMENT=test LB_ROUTING_URL_PARAM=parser mocha",
+    "lint": "./node_modules/.bin/eslint ./"
+  },
+  "main": "lib/express/app.js",
+  "engine-strict": true,
+  "engines": {
+    "node": "^7.10.0"
+  }
+}
